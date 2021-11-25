@@ -58,4 +58,31 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function perfil(){
+        return $this->hasOne('App\Models\Perfil');
+    }
+
+    public function certificado(){
+        return $this->belongsToMany('App\Models\Certificados');
+    }
+    public function vacante(){
+        return $this->belongsToMany('App\Models\Vacante');
+
+    }
+    public function carrera(){
+        return $this->belongsTo('App\Models\Carrera');
+    }
+    public function situacion(){
+        return $this->belongsTo('App\Models\SituacionLaboral');
+
+    }
+    public function solicitud(){
+        return $this->belongsTo('App\Models\TipoSolicitud');
+        
+    }
+    public function empresa(){
+        return $this->hasOne('App\Models\Empresa');
+    }
+
 }
